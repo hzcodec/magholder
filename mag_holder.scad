@@ -36,9 +36,30 @@ module pin_hole_servo() {
 
 }
 
+module version_text() {
+	color([.6, .7, .6])
+        rotate([90,0,0])
+	translate([35, 5, 0]) {
+		linear_extrude(height=1) {
+			text(content, font=font, size=5);
+		}
+	}
+}
+
+
+//
+// main
+//
 difference() {
     holder();
     pin_hole_holder();
     block_holder();
     pin_hole_servo();
 }
+
+translate([-25, 0, 0]) cube([25, 20, 5]);
+translate([50, 0, 0]) cube([25, 20, 5]);
+
+content = "RA";
+font = "Liberation Sans";
+version_text();
