@@ -1,3 +1,5 @@
+include <ruler.scad>
+
 $fn=60;
 
 module holder() {
@@ -11,6 +13,7 @@ module holder() {
 }
 //
 
+// at top
 module pin_hole_holder() {
     pin_diameter = 4.8;
     translate([10, 10, 45])
@@ -20,12 +23,16 @@ module pin_hole_holder() {
 }
 //
 
+// at bottom
 module block_holder() {
-    hold_diameter = 3.8;
+    //hold_diameter = 3.8;
+    hold_diameter = 6;
     translate([10, 10, 0])
-    cylinder(d=hold_diameter, h=15);
+    //cylinder(d=hold_diameter, h=15);
+    cylinder(d=hold_diameter, h=5);
     translate([40, 10, 0])
-    cylinder(d=hold_diameter, h=15);
+    //cylinder(d=hold_diameter, h=15);
+    cylinder(d=hold_diameter, h=5);
 }
 
 module pin_hole_servo() {
@@ -64,3 +71,7 @@ translate([50, 0, 0]) cube([25, 20, 5]);
 content = "RA";
 font = "Liberation Sans";
 version_text();
+
+// ruler for motor support
+//translate([15, 30, 0]) rotate([90, 0, 0]) ruler(60);
+
