@@ -57,6 +57,7 @@ difference() {
     pin_hole_servo();
 }
 
+// base support
 translate([-25, 0, 0]) cube([25, 20, 5]);
 translate([50, 0, 0]) cube([25, 20, 5]);
 
